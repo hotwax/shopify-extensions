@@ -1,0 +1,24 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "4bf928089d8a75760c86d45b5272976f"
+application_url = "https://shopify.dev/apps/default-app-home"
+embedded = true
+name = "practice-gift-wrapper"
+handle = "practice-gift-wrapper"
+
+[webhooks]
+api_version = "2025-01"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_draft_orders, write_draft_orders, read_products"
+
+[auth]
+redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
+
+[pos]
+embedded = false
+
+[build]
+dev_store_url = "hotwax-dev.myshopify.com"
+include_config_on_deploy = true
