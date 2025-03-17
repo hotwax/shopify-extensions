@@ -1,0 +1,24 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "c2ee46e8f05c470189693c4958c60d30"
+application_url = "https://shopify.dev/apps/default-app-home"
+embedded = true
+name = "HC Gift Wrap Gorjana Dev"
+handle = "hc-gift-wrap-gorjana-dev"
+
+[build]
+include_config_on_deploy = true
+dev_store_url = "hc-sandbox.myshopify.com"
+
+[webhooks]
+api_version = "2025-01"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_draft_orders,read_products,write_draft_orders"
+
+[auth]
+redirect_urls = [ "https://shopify.dev/apps/default-app-home/api/auth" ]
+
+[pos]
+embedded = false
