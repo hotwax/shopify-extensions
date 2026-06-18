@@ -1,0 +1,12 @@
+{
+  "name": "app-home",
+  "private": true,
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "preact": "^10.10.x",
+    "preact-iso": "^2.9.1",
+    "@preact/signals": "^2.3.x",
+    "@shopify/ui-extensions": "rc"
+  }
+}

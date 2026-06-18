@@ -1,0 +1,19 @@
+api_version = "2026-04"
+
+[[extensions]]
+type = "ui_extension"
+name = "Drop Ship Attribution"
+handle = "drop-ship-attribution"
+description = "Drop Ship Attribution"
+uid = "607e6f63-c896-f55f-b44b-6ee09037ca67c1771eba"
+
+# Menu Item Target
+[[extensions.targeting]]
+target = "pos.cart.line-item-details.action.menu-item.render"
+module = "./src/MenuItem.tsx"
+
+
+# Full Screen Action Target
+[[extensions.targeting]]
+target = "pos.cart.line-item-details.action.render"
+module = "./src/DropShipAttribution.tsx"

@@ -1,0 +1,9 @@
+{
+  "admin.app.home.render": {
+    "assets": [
+      "graphql-logo.png",
+      "polaris-icon.png",
+      "preact-logo.png"
+    ]
+  }
+}

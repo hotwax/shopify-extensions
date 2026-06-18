@@ -1,0 +1,76 @@
+[
+  {
+    "$schema": "https://extensions.shopifycdn.com/shopifycloud/schemas/v1/tool.json",
+    "name": "list_faqs",
+    "description": "List all FAQ entries",
+    "inputSchema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "description": "Always 'resource_link'" },
+              "uri": { "type": "string", "description": "GID URI of the FAQ metaobject" },
+              "name": { "type": "string", "description": "The FAQ question" },
+              "mimeType": { "type": "string", "description": "MIME type for this resource" },
+              "_meta": {
+                "type": "object",
+                "description": "Additional metadata for the FAQ entry",
+                "properties": {
+                  "answer": { "type": "string", "description": "The FAQ answer" },
+                  "show_on_faq_page": { "type": "boolean", "description": "Whether this FAQ is publicly visible" }
+                }
+              }
+            },
+            "required": ["type", "uri", "name", "mimeType"]
+          }
+        }
+      }
+    }
+  },
+  {
+    "$schema": "https://extensions.shopifycdn.com/shopifycloud/schemas/v1/tool.json",
+    "name": "get_faq",
+    "description": "Get a single FAQ entry by ID",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "The GID of the FAQ metaobject" }
+      },
+      "required": ["id"]
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "description": "Always 'resource_link'" },
+              "uri": { "type": "string", "description": "GID URI of the FAQ metaobject" },
+              "name": { "type": "string", "description": "The FAQ question" },
+              "mimeType": { "type": "string", "description": "MIME type for this resource" },
+              "_meta": {
+                "type": "object",
+                "description": "Additional metadata for the FAQ entry",
+                "properties": {
+                  "answer": { "type": "string", "description": "The FAQ answer" },
+                  "show_on_faq_page": { "type": "boolean", "description": "Whether this FAQ is publicly visible" }
+                }
+              }
+            },
+            "required": ["type", "uri", "name", "mimeType"]
+          }
+        }
+      }
+    }
+  }
+]

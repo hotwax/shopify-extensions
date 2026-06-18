@@ -1,0 +1,6 @@
+{
+  "admin.app.tools.data": {
+    "tools": "tools.json",
+    "instructions": "instructions.md"
+  }
+}

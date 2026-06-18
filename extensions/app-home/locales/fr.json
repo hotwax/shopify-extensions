@@ -1,0 +1,4 @@
+{
+  "name": "app-home",
+  "welcome": "Bienvenue dans l'extension {{target}}!"
+}

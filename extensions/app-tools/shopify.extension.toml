@@ -1,0 +1,14 @@
+api_version = "2025-10"
+
+[[extensions]]
+name = "t:name"
+handle = "app-tools"
+uid = "4d455331-4620-428e-c7e0-a7ad548fde8d2f93be2c"
+type = "ui_extension"
+description = "t:description"
+
+[[extensions.targeting]]
+module = "./src/index.js"
+target = "admin.app.tools.data"
+tools = "./tools.json"
+instructions = "./instructions.md"

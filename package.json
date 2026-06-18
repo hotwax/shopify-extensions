@@ -1,0 +1,27 @@
+{
+  "name": "pos-drop-ship-app",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "workspaces": [
+    "extensions/*"
+  ],
+  "scripts": {
+    "shopify": "shopify",
+    "build": "shopify app build",
+    "dev": "shopify app dev",
+    "info": "shopify app info",
+    "generate": "shopify app generate",
+    "deploy": "shopify app deploy"
+  },
+  "dependencies": {
+    "@shopify/ui-extensions": "2026.4.0",
+    "@shopify/ui-extensions-react": "2026.0.0",
+    "preact": "^10.29.2",
+    "react": "^19.2.6"
+  },
+  "trustedDependencies": [
+    "@shopify/plugin-cloudflare"
+  ],
+  "author": "govindkushwaha",
+  "private": true
+}

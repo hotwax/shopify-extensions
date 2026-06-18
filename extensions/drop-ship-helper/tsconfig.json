@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "target": "ES2020",
+    "checkJs": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noEmit": true,
+    "skipLibCheck": true
+  }
+}

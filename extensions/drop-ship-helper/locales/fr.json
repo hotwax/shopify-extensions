@@ -1,0 +1,8 @@
+{
+  "name": "drop-ship-helper",
+  "welcome": "Bienvenue dans l'extension d'action {{flavor}}",
+  "block_heading": "Bonjour le monde",
+  "block_content": "Ceci est une extension de bloc",
+  "open_action": "Ouvrir l'action"
+}
+
