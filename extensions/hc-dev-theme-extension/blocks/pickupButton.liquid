@@ -1,0 +1,113 @@
+{%- if block.settings.store_selector_display == "modal" -%}
+  <hc-pickup-button
+  data-show-pickup-here="{{ block.settings.enable_pick_up }}"
+  data-hc-variants='{{ product.variants | json }}'
+  data-product-id="{{ product.selected_or_first_available_variant.id }}"
+  data-product-sku="{{ product.selected_or_first_available_variant.sku }}"
+  data-product-title="{{ product.selected_or_first_available_variant.title }}"
+  data-pickup-item-property='{{ block.settings.pickup_item_property }}'
+  data-pickup-item-property-label='{{ block.settings.pickup_item_property_label }}'
+  data-store-proximity='{{ block.settings.store_proximity }}'
+  data-max-stores-display='{{ block.settings.max_store_display }}'
+  data-enable-warehouse-pickup='{{ block.settings.enable_pick_up_warehouse }}'
+  data-store-selector-display='{{ block.settings.store_selector_display }}'
+  data-show-home-store-in-search='{{ block.settings.show_homestore_search_result }}'
+  data-show-store-weekly-timings='{{ block.settings.show_store_weekly_timings }}'>
+    <button id="pickup-today-btn" type="button" class="btn button">
+      {{ block.settings.pick_up_button }}
+    </button>
+  </hc-pickup-button>
+{%-  else -%}
+  {%- render 'store', 
+    storeSelectorDisplay: block.settings.store_selector_display, enablePickup: block.settings.enable_pick_up, maxStoreDisplay: block.settings.max_store_display, storeProximity: block.settings.store_proximity, pickupItemProperty: block.settings.pickup_item_property, pickupItemPropertyLabel: block.settings.pickup_item_property_label, showOutOfStockStores: true, includeWarehouse: block.settings.enable_pick_up_warehouse, showHomeStoreInSearch: block.settings.show_homestore_search_result, showStoreWeeklyTimings: block.settings.show_store_weekly_timings, mode: 'inline'
+  -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Pickup Button",
+  "target": "section",
+  "stylesheet": "hcBopis.css",
+  "javascript": "hcBopis.js",
+  "settings": [
+    {
+      "label": "Button Label",
+      "id": "pick_up_button",
+      "type": "text",
+      "default": "Pick Up Today",
+      "info": "Label for the button that will be displayed on PDP"
+    },
+    {
+      "label": "Store search proximity",
+      "id": "store_proximity",
+      "type": "number",
+      "default": 50,
+      "info": "Proximity in miles that will be used when searching for stores, by default there will be no limit on search all the stores will be displayed as search results"
+    },
+    {
+      "label": "Enable pick up here",
+      "id": "enable_pick_up",
+      "type": "checkbox",
+      "default": true,
+      "info": "Control whether to display a pick up button for stores. Turn it off if you do not want to allow customers to order pick up items and just serve the modal as a store finder."
+    },
+    {
+      "label": "Configure store selector display",
+      "id": "store_selector_display",
+      "type": "radio",
+      "default": "modal",
+      "info": "Control whether to display the store selector as a modal or inline",
+      "options": [
+        { "value": "modal", "label": "Modal" },
+        { "value": "inline", "label": "Inline" }
+      ]
+    },
+    {
+      "label": "Include warehouse for pick up",
+      "id": "enable_pick_up_warehouse",
+      "type": "checkbox",
+      "default": false,
+      "info": "Control whether to display warehouses in the store selection list for pick up"
+    },
+    {
+      "label": "Add Pickup Store property",
+      "id": "pickup_item_property",
+      "type": "checkbox",
+      "default": true,
+      "info": "Whether to add a property on item that will include the store's address from where the item to be picked, this will be displayed on UI and will be visible to end user."
+    },
+    {
+      "label": "Pick up Store property label",
+      "id": "pickup_item_property_label",
+      "type": "text",
+      "default": "Pickup Store",
+      "info": "Label for the store address on item property",
+      "visible_if": "{{ block.settings.pickup_item_property }}"
+    },
+    {
+      "label": "Show store weekly timing",
+      "id": "show_store_weekly_timings",
+      "type": "checkbox",
+      "default": false,
+      "info": "Control the UI to whether display the store weekly timing with the store information"
+    },
+    {
+      "label": "Include home store in search results",
+      "id": "show_homestore_search_result",
+      "type": "checkbox",
+      "default": false,
+      "info": "Include the selected home store in the search results, not recommended as the same store will be displayed twice once as a home store another in the search results."
+    },
+    {
+      "label": "Configure the max number of stores to display",
+      "id": "max_store_display",
+      "type": "number",
+      "default": 5,
+      "info": "Set the maximum number of stores to display in the Inline Store List or Modal."
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}

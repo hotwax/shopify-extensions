@@ -1,0 +1,68 @@
+<my-store-modal class="hc-modal-embed"
+  data-show-warehouse='{{ block.settings.enable_pick_up_warehouse }}'
+  data-show-timings='{{ block.settings.show_store_weekly_timings }}'
+  data-store-search-proximity='{{ block.settings.store_proximity }}'
+  data-show-home-store-in-search='{{ block.settings.show_homestore_search_result }}'
+  data-customer-id='{{ customer.id }}'
+  data-shop-id='{{ shop.id }}'
+>
+  <div id="mystore-modal" class="hc-modal">
+    <div id="seleted-store" class="store" style="display: none;"></div>
+    <button id="hc-ms-close-btn" onclick="closeMyStoreModal()"
+      style="
+          position:absolute;
+          top:10px;
+          right:10px;
+          background:none;
+          border:none;
+          font-size:2rem;
+          cursor:pointer;
+      ">&times;</button>
+    <form id="my-store-search-form" class="hc-modal__search">
+      <div class="hc-input-wrapper">
+        <input id="my-store-modal-zipcode-input" type="text" placeholder="Enter zipcode ({{ block.settings.store_proximity }} mile radius)">
+        <img id="hc-ms-location-icon" src="{{ 'LocationIcon.svg' | asset_url }}" alt="Location Icon" height="20" width="20" data-picklocation="false">
+      </div>
+      <button type="submit" class="hc-modal-find-stores-btn"
+      >Find Stores</button>
+    </form>
+  </div>
+</my-store-modal>
+{% schema %}
+{
+  "name": "My Store Modal",
+  "target": "body",
+  "stylesheet": "hcBopis.css",
+  "javascript": "hcBopis.js",
+  "settings": [
+    {
+      "label": "Include warehouse for pick up",
+      "id": "enable_pick_up_warehouse",
+      "type": "checkbox",
+      "default": false,
+      "info": "Control whether to display warehouses in the store selection list for pick up"
+    },
+    {
+      "label": "Store search proximity",
+      "id": "store_proximity",
+      "type": "number",
+      "default": 50,
+      "info": "Proximity in miles that will be used when searching for stores, by default there will be no limit on search all the stores will be displayed as search results"
+    },
+    {
+      "label": "Show store weekly timing",
+      "id": "show_store_weekly_timings",
+      "type": "checkbox",
+      "default": false,
+      "info": "Control the UI to whether display the store weekly timing with the store information"
+    },
+    {
+      "label": "Include home store in search results",
+      "id": "show_homestore_search_result",
+      "type": "checkbox",
+      "default": false,
+      "info": "Include the selected home store in the search results, not recommended as the same store will be displayed twice once as a home store another in the search results."
+    }
+  ]
+}
+{% endschema %}

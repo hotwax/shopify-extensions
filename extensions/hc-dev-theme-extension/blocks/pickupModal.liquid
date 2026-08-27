@@ -1,0 +1,23 @@
+<hc-pickup-modal id="pickup-modal-embed">
+  <dialog class="hc-pickup-dialog">
+    <button type="button" class="hc-pickup-dialog-close" aria-label="Close">&times;</button>
+    <h2 style="text-align: center;">Pickup Today</h2>
+    <form id="hc-pickup-modal__search" class="hc-modal__search">
+      <div class="hc-input-wrapper">
+        <input id="pickup-modal-zipcode-input" type="text" placeholder="Enter zipcode">
+        <img id="hc-location-icon" src="{{ 'LocationIcon.svg' | asset_url }}" alt="Location Icon" height="20px" width="20px" data-picklocation="false">
+      </div>
+      <button type="submit" class="hc-modal-find-stores-btn">Find Stores</button>
+    </form>
+    {% render 'store' mode: 'modal' %}
+  </dialog>
+</hc-pickup-modal>
+{% schema %}
+{
+  "name": "Pickup Modal",
+  "target": "body",
+  "stylesheet": "hcBopis.css",
+  "javascript": "hcBopis.js",
+  "settings": []
+}
+{% endschema %}

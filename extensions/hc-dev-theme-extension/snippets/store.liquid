@@ -1,0 +1,26 @@
+<hc-pickup-store-list
+    data-mode="{{ mode }}"
+    data-store-selector-display='{{ storeSelectorDisplay }}'
+    data-show-pickup-here='{{ enablePickup }}'
+    data-max-stores-display='{{ maxStoreDisplay }}'
+    data-store-proximity='{{ storeProximity }}'
+    data-product-id="{{ product.selected_or_first_available_variant.id }}"
+    data-product-title="{{ product.title }}"
+    data-product-sku="{{ product.selected_or_first_available_variant.sku }}"
+    data-pickup-item-property='{{ pickupItemProperty }}'
+    data-pickup-item-property-label='{{ pickupItemPropertyLabel }}'
+    data-show-out-of-stock-stores='{{ showOutOfStockStores }}'
+    data-enable-warehouse-pickup='{{ includeWarehouse }}'
+    data-hc-variants='{{ product.variants | json }}'
+    data-show-home-store-in-search='{{ showHomeStoreInSearch }}'
+    data-show-store-weekly-timings='{{ showStoreWeeklyTimings }}'>
+  <div id="hc-pc-my-store" data-store-selector-display='{{ storeSelectorDisplay }}'>
+      {%- if mode == 'modal' -%}
+          <span style="font-weight: bold;">
+              My Store:
+          </span>
+      {%- endif -%}
+  </div>
+  {% render 'storeListPagination' mode: mode %}
+  <div id="store-list"></div>
+</hc-pickup-store-list>
